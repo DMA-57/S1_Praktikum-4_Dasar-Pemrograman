@@ -46,7 +46,7 @@ def diskonKategori(harga, kategori, VIP):
     """Menghitung potongan harga berdasarkan kategori dan status VIP."""
     if kategori == 'elektronik':
         if VIP: 
-            return potonganHarga(harga, 30)  # Diskon 30% untuk VIP
+            return potonganHarga(harga, 30)  #a Diskon 30% untuk VIP
         else: 
             return potonganHarga(harga, 10)  # Diskon 10% untuk non-VIP
     elif kategori == 'pakaian':
@@ -59,6 +59,7 @@ def diskonKategori(harga, kategori, VIP):
             return potonganHarga(harga, 15)  # Diskon 15% untuk VIP
         else: 
             return potonganHarga(harga, 2)   # Diskon 2% untuk non-VIP
+    return harga
 
 def penangananHari(harga, hari, VIP, kategori):
     """Menghitung potongan atau pajak berdasarkan hari pembelian."""
