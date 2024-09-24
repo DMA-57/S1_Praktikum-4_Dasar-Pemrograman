@@ -60,16 +60,18 @@ def estimation(D, X, Y, AS, AM, AIP):
 
 def EstimateGreatLib(D, X, Y, SS, SR, AS, AM, AIP, R):
     if X < SR and Y > SS:
-        return (estimation(D, X, SR,AS, AM, AIP) * (R / 100) + estimation(D, SR, SS, AS, AM, AIP) + estimation(D, SS, Y, AS, AM, AIP) * (R / 100)) / 3
-    elif X < SS and Y > SS: 
-        return (estimation(D, X, SS, AS, AM, AIP) +  estimation(D, SS, Y, AS, AM, AIP) * (R / 100)) / 2
-    elif X < SR and Y > SR:
-        return (estimation(D, X, SR, AS, AM, AIP) * (R / 100) + estimation(D, SR, Y, AS, AM, AIP)) / 2
-    elif (X < SR and Y < SR) or (X > SS and Y > SS):
-        return estimation(D, X, Y, AS, AM, AIP) * R / 100
+           return round((estimation(D, X, SR, AS, AM, AIP) * (R / 100)  
+                      + estimation(D, SS, SR, AS, AM, AIP) + estimation(D, SS, Y, AS, AM, AIP) * (R/ 100)) / 3 , 5)
+    elif X < SR and Y > SR:  
+        return round((estimation(D, X, SR, AS, AM, AIP) * (R / 100)  
+                      + estimation(D, SR, Y, AS, AM, AIP)) / 2 , 5)
+    elif  Y > SS and X < SS: 
+        return round((estimation(D, X, SS, AS, AM, AIP)  
+                      + estimation(D, SS, Y, AS, AM, AIP) * (R / 100)) /2 , 5)
+    elif (X < SR) or ((X > SS) and (Y < SR)) or (Y > SS):
+        return round(estimation(D, X, Y, AS, AM, AIP)* (R / 100)  , 5)
     else:
-        return  estimation(D, X, Y, AS, AM, AIP)
-    
+        return round(estimation(D, X, Y, AS, AM, AIP) , 5)
 # ===========================================================================
 #Aplikasi
 print(EstimateGreatLib("senin", 12, 17, 18, 9, 6000, 5000, 4500, 50)) #1.5
