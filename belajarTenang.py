@@ -15,11 +15,10 @@
 
 def BelajarTenang(dB, m):
     if 15 * 10 ** ((dB - 40) / 20) <= m :
-        return str(round(15 * 10 ** ((dB - 40) / 20), 3)) + ' meter'
+        return f'{15 * 10 ** ((dB - 40) / 20):.3f} meter' if 15 * 10 ** ((dB - 40) / 20) <= m else 'Isi bensin dulu, bang'
     else:
         return 'Isi bensin dulu, bang'
 
-    # return f'{15 * 10 ** ((dB - 40) / 20):.3f} meter' if 15 * 10 ** ((dB - 40) / 20) <= m else 'Isi bensin dulu, bang'
 
 # ===========================================================================
 # APLIKASI
